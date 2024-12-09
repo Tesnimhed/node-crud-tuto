@@ -1,4 +1,5 @@
 import express from 'express';
+import passport from 'passport'
 import { addRoom, getTest , postTest , getRooms , getRoom , updateRoom , deleteRoom } from '../controllers/roomControllers.js';
 import { catchErrors } from '../helpers.js';
 
@@ -22,5 +23,9 @@ router.patch('/room/:id' , catchErrors(updateRoom))
 router.delete('/room/:id' , catchErrors(deleteRoom))
 
 router.get('/rooms' , catchErrors(getRooms))
+
+//Authentification 
+
+router.post('/signup', passport.authenticate('signup', { session: false }))
 
 export default router;

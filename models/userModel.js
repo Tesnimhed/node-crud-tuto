@@ -28,7 +28,13 @@ UserSchema.pre('save', async function (next) {
 
 //Ajouter une methode pour verifier le password
 
+UserSchema.methods.isValidPassword = async function(password){
+    const user = this;
 
+    const isSame = await bcrypt.compare(password, user.password)
+
+    return isSame 
+}
 
 const UserModel = mongoose.model('User', UserSchema);
 

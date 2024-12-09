@@ -1,0 +1,23 @@
+GET http://localhost:2000/api/rooms
+
+###
+
+POST http://localhost:2000/api/rooms HTTP/1.1
+content-type: application.json
+
+{
+    "name": "Basic"
+}
+
+###
+
+GET http://localhost:2000/api/rooms/674c84d376d0153bdcdf5d50
+
+###
+
+PATCH http://localhost:2000/signup HTTP/1.1
+content-type: application/json
+{
+    "email": "test@test.com",
+    "password":"azerty
+}
